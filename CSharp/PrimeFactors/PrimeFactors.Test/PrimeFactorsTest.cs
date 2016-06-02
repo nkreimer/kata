@@ -7,27 +7,64 @@ namespace PrimeFactors.Test
     [TestClass]
     public class PrimeFactorsTest
     {
-        private List<int> list(int[] ints = null)
+        [TestMethod]
+        public void ShouldFactorOne()
         {
-            List<int> list = new List<int>();
-            if (ints != null)
-            {
-                foreach (int i in ints)
-                    list.Add(i);
-            }
-            return list;
+            CollectionAssert.AreEquivalent(new int[0], PrimeFactors.Generate(1));
         }
 
         [TestMethod]
-        public void TestOne()
+        public void ShouldFactorTwo()
         {
-            CollectionAssert.AreEqual(list(), PrimeFactors.Generate(1));
+            CollectionAssert.AreEquivalent(new[] { 2 }, PrimeFactors.Generate(2));
         }
 
         [TestMethod]
-        public void TestTwo()
+        public void ShouldFactorThree()
         {
-            CollectionAssert.AreEqual(list(new int[2]), PrimeFactors.Generate(2));
+            CollectionAssert.AreEquivalent(new[] { 3 }, PrimeFactors.Generate(3));
+        }
+
+        [TestMethod]
+        public void ShouldFactorFour()
+        {
+            CollectionAssert.AreEquivalent(new[] { 2, 2 }, PrimeFactors.Generate(4));
+        }
+
+        [TestMethod]
+        public void ShouldFactorSix()
+        {
+            CollectionAssert.AreEquivalent(new[] { 2, 3 }, PrimeFactors.Generate(6));
+        }
+
+        [TestMethod]
+        public void ShouldFactorEight()
+        {
+            CollectionAssert.AreEquivalent(new[] { 2, 2, 2 }, PrimeFactors.Generate(8));
+        }
+
+        [TestMethod]
+        public void ShouldFactorNine()
+        {
+            CollectionAssert.AreEquivalent(new[] { 3, 3 }, PrimeFactors.Generate(9));
+        }
+
+        [TestMethod]
+        public void ShouldFactorFourtyTwo()
+        {
+            CollectionAssert.AreEquivalent(new[] { 2, 3, 7 }, PrimeFactors.Generate(42));
+        }
+
+        [TestMethod]
+        public void ShouldFactor()
+        {
+            CollectionAssert.AreEquivalent(new[] { 2, 3, 7, 11, 13 }, PrimeFactors.Generate(2*3*7*11*13));
+        }
+
+        [TestMethod]
+        public void ShouldFactorMaxValue()
+        {
+            CollectionAssert.AreEquivalent(new[] { int.MaxValue }, PrimeFactors.Generate(int.MaxValue));
         }
     }
 }
