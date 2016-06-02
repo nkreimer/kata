@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BowlingGame.Test
 {
     [TestClass]
-    public class Bowling
+    public class BowlingGameTest
     {
         [TestMethod]
         public void TestMethod1()
