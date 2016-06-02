@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace PrimeFactors
 {
-    public class Class1
+    public class PrimeFactors
     {
+        public static List<int> Generate(int Int)
+        {
+            return new List<int>();
+        }
     }
 }
