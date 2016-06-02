@@ -7,7 +7,7 @@ namespace BowlingGame.Test
     public class BowlingGameTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestGutterGame()
         {
         }
     }
