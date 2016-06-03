@@ -52,12 +52,19 @@ namespace BowlingGame.Test
         [TestMethod]
         public void TestOneStrike()
         {
-            g.Roll(10); // strike
+            RollStrike();
             g.Roll(3);
             g.Roll(4);
             RollMany(16, 0);
             Assert.AreEqual(24, g.Score());
         }
+
+        private void RollStrike()
+        {
+            g.Roll(10);
+        }
+
+
 
     }
 }
