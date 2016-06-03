@@ -10,7 +10,7 @@ namespace Calculator
     {
         public static int Add(string s)
         {
-            return -1;
+            return 0;
         }
     }
 }
