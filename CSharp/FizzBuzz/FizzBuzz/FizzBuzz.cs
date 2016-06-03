@@ -9,12 +9,15 @@ namespace FizzBuzz
     public class FizzBuzz
     {
 
-        public string GetString()
+        public string GetString(int i)
         {
-            for (int i = 100; i <= 100; i++)
-            {
-                return null;
-            }
+            //for (int i = 100; i <= 100; i++)
+            //{
+            if (i % 3 == 0)
+                return "Fizz";
+            else
+                return i.ToString();
+            //}
         }
     }
 }
