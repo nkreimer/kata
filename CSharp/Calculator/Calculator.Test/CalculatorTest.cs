@@ -7,8 +7,9 @@ namespace Calculator.Test
     public class CalculatorTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Add_EmptyString_ReturnZero()
         {
+            Assert.AreEqual(0, Calculator.Add(""));
         }
     }
 }
