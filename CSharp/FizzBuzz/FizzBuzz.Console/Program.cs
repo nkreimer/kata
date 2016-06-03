@@ -10,6 +10,9 @@ namespace FizzBuzz.Console
     {
         static void Main(string[] args)
         {
+            //for (int i = 100; i <= 100; i++)
+            //{
+            //}
         }
     }
 }
