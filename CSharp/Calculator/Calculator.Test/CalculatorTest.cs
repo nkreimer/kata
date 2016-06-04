@@ -11,5 +11,11 @@ namespace Calculator.Test
         {
             Assert.AreEqual(0, Calculator.Add(""));
         }
+
+        [TestMethod]
+        public void Add_OneNumberString_ReturnNumber()
+        {
+            Assert.AreEqual(5, Calculator.Add("5"));
+        }
     }
 }
