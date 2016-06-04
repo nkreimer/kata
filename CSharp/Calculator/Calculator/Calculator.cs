@@ -8,11 +8,35 @@ namespace Calculator
 {
     public class Calculator
     {
+
+        private static string _delimiter = ",";
+
         public static int Add(string numbers)
         {
             if(IsEmptyString(numbers))
-              return HandleEmptyString();
+                return HandleEmptyString();
 
+            if (HasMultipleNumbers(numbers))
+            {
+                return HandleMultipleNumbers(numbers);
+            }
+        
+            return HandleOneNumber(numbers);
+        }
+
+        private static int HandleMultipleNumbers(string numbers)
+        {
+            string[] nums = numbers.Split(_delimiter.ToCharArray());
+            return HandleOneNumber(nums[0]) + HandleOneNumber(nums[1]);
+        }
+
+        private static bool HasMultipleNumbers(string numbers)
+        {
+            return numbers.Contains(_delimiter);
+        }
+
+        private static int HandleOneNumber(string numbers)
+        {
             return int.Parse(numbers);
         }
 
