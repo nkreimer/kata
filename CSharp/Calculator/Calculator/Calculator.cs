@@ -26,8 +26,13 @@ namespace Calculator
 
         private static int HandleMultipleNumbers(string numbers)
         {
+            int result = 0;
             string[] nums = numbers.Split(_delimiter.ToCharArray());
-            return HandleOneNumber(nums[0]) + HandleOneNumber(nums[1]);
+            foreach (string num in nums)
+            {
+                result += HandleOneNumber(num);
+            }
+            return result;
         }
 
         private static bool HasMultipleNumbers(string numbers)

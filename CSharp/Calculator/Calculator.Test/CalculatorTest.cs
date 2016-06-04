@@ -25,5 +25,12 @@ namespace Calculator.Test
             Assert.AreEqual(3, Calculator.Add("1,2"));
             Assert.AreEqual(4, Calculator.Add("2,2"));
         }
+
+        [TestMethod]
+        public void Add_MultipleNumberString_ReturnSumOfNumbers()
+        {
+            Assert.AreEqual(6, Calculator.Add("1,2,3"));
+            Assert.AreEqual(7, Calculator.Add("2,2,3"));
+        }
     }
 }
