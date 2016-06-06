@@ -45,5 +45,11 @@ namespace Calculator.Test
         {
             Assert.AreEqual(1, Calculator.Add("//,\n1"));
         }
+
+        [TestMethod]
+        public void Add_TwoNumberStringWithAlternativeDelimiter_ReturnSumeOfNumbers()
+        {
+            Assert.AreEqual(3, Calculator.Add("//;\n1;2"));
+        }
     }
 }

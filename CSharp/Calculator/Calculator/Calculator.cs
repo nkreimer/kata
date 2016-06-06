@@ -28,6 +28,11 @@ namespace Calculator
         
             return HandleOneNumber(numbers);
         }
+        
+        private void ParseDelimter()
+        {
+
+        }
 
         private static string GetNumbers (string numbers)
         {
