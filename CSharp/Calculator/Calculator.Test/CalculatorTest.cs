@@ -32,5 +32,18 @@ namespace Calculator.Test
             Assert.AreEqual(6, Calculator.Add("1,2,3"));
             Assert.AreEqual(7, Calculator.Add("2,2,3"));
         }
+
+        [TestMethod]
+        public void Add_NoNumberStringWithDelimiterLine_ReturnZero()
+        {
+            Assert.AreEqual(0, Calculator.Add("//,\n"));
+
+        }
+
+        [TestMethod]
+        public void Add_OneNumberStringWithDelimiterLine_ReturnNumber()
+        {
+            Assert.AreEqual(1, Calculator.Add("//,\n1"));
+        }
     }
 }
