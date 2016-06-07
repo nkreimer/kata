@@ -7,23 +7,25 @@ namespace Calculator.Test
     public class CalculatorTest
     {
         [TestMethod]
-        public void Add_EmptyString_ReturnZero()
+        public void Add_ReturnZeroWhenSuppliedEmptyOrNullString()
         {
             Assert.AreEqual(0, Calculator.Add(""));
+            Assert.AreEqual(0, Calculator.Add(null));
         }
 
         [TestMethod]
-        public void Add_OneNumberString_ReturnNumber()
+        public void Add_ReturnNumberWhenSuppliedSingleNumberInString()
         {
             Assert.AreEqual(1, Calculator.Add("1"));
             Assert.AreEqual(5, Calculator.Add("5"));
         }
 
         [TestMethod]
-        public void Add_TwoNumberString_ReturnSumOfNumbers()
+        public void Add_ReturnSumWhenSuppliedMultipleNumbersInString()
         {
             Assert.AreEqual(3, Calculator.Add("1,2"));
             Assert.AreEqual(4, Calculator.Add("2,2"));
+            Assert.AreEqual(15, Calculator.Add("1,3,6,5"));
         }
 
         [TestMethod]

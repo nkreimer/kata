@@ -13,13 +13,14 @@ namespace Calculator
 
         public static int Add(string numbers)
         {
-            if(HasDelimiterLine(numbers))
+            if (IsEmptyOrNullString(numbers))
+                return HandleEmptyString();
+
+            if (HasDelimiterLine(numbers))
             {
                 numbers = GetNumbers(numbers);
             }
 
-            if(IsEmptyString(numbers))
-                return HandleEmptyString();
 
             if (HasMultipleNumbers(numbers))
             {
@@ -66,13 +67,9 @@ namespace Calculator
             return int.Parse(numbers);
         }
 
-        private static bool IsEmptyString(string s)
+        private static bool IsEmptyOrNullString(string s)
         {
-            if(s.Length == 0)
-            {
-                return true;
-            }
-            return false;
+            return string.IsNullOrEmpty(s) ? true : false;
         }
 
         private static int HandleEmptyString()
