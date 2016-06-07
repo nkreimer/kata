@@ -8,73 +8,71 @@ namespace Calculator
 {
     public class Calculator
     {
-
-        private static string _delimiter = ",";
-
         public static int Add(string numbers)
         {
-            if (IsEmptyOrNullString(numbers))
-                return HandleEmptyString();
+            return string.IsNullOrEmpty(numbers) ? 0 : GetSum(numbers);
+        }
 
-            if (HasDelimiterLine(numbers))
+        private static int GetSum(string numbers)
+        {
+            var delimiter = GetPossibleDelimiter(numbers);
+            var newnumbers = numbers;
+
+            if (HasSpecificDelimiter(numbers)) //for specific delimiters
             {
-                numbers = GetNumbers(numbers);
+                delimiter = GetSpecificDelimiter(numbers);
+                newnumbers = GetSpecificNumbers(numbers);
             }
 
-
-            if (HasMultipleNumbers(numbers))
-            {
-                return HandleMultipleNumbers(numbers);
-            }
-        
-            return HandleOneNumber(numbers);
-        }
-        
-        private void ParseDelimter()
-        {
-
+            return ContainsAny(numbers, delimiter)
+                       ? newnumbers.Split(delimiter.ToCharArray()).Sum(n => ParseToInt(n))
+                       : ParseToInt(newnumbers);
         }
 
-        private static string GetNumbers (string numbers)
+        private static bool HasSpecificDelimiter(string numbers)
         {
-            string[] numParts = numbers.Split(char.Parse("\n"));
-            return numParts[1];
+            return numbers.StartsWith("//");
         }
 
-        private static bool HasDelimiterLine(string numbers)
+        private static string GetPossibleDelimiter(string numbers)
         {
-            return numbers.StartsWith("//"); 
+            return ",\n";
         }
-
-        private static int HandleMultipleNumbers(string numbers)
+        private static string GetSpecificDelimiter(string numbers)
         {
-            int result = 0;
-            string[] nums = numbers.Split(_delimiter.ToCharArray());
-            foreach (string num in nums)
-            {           
-                result += HandleOneNumber(num);
-            }
+            return numbers.Substring(2, numbers.IndexOf("\n", StringComparison.Ordinal) - 2);
+        }
+        private static string GetSpecificNumbers(string numbers)
+        {
+            return numbers.Substring(numbers.IndexOf("\n", StringComparison.Ordinal) + 1,
+                                     numbers.Length - numbers.IndexOf("\n", StringComparison.Ordinal) - 1);
+        }
+        private static int ParseToInt(string n)
+        {
+            var result = IsGreaterThanThousand(Convert.ToInt32(n))
+                             ? 0
+                             : (Convert.ToInt32(string.IsNullOrEmpty(n) ? "0" : n));
+            VelidateNumbersArePerRule(result);
+
             return result;
         }
 
-        private static bool HasMultipleNumbers(string numbers)
+        private static bool IsGreaterThanThousand(int nn)
         {
-            return numbers.Contains(_delimiter);
+            return nn > 1000;
         }
 
-        private static int HandleOneNumber(string numbers)
+        private static bool ContainsAny(string input, string getPossibleDelimiters)
         {
-            return int.Parse(numbers);
+            return getPossibleDelimiters.ToCharArray().Any(input.Contains);
         }
 
-        private static bool IsEmptyOrNullString(string s)
+        private static void VelidateNumbersArePerRule(int number)
         {
-            return string.IsNullOrEmpty(s) ? true : false;
-        }
-
-        private static int HandleEmptyString()
-        {
-            return 0;
+            if (number < 0)
+                throw new ArgumentException(
+                    string.Format(
+                        "string contains [{0}], which does not meet rule. entered number should not negative.", number));
         }
     }
 }
