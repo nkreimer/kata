@@ -53,6 +53,12 @@
     <Compile Include="StringSumTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StringSum\StringSum.csproj">
+      <Project>{c00e79c2-f349-488c-9527-4de16b8a5930}</Project>
+      <Name>StringSum</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
