@@ -9,13 +9,13 @@ namespace StringSum.Test
         [TestMethod]
         public void Sum_TwoNumbersReturnSum()
         {
-            Assert.AreEqual(2, StringSum.Sum("1", "1"));
+            Assert.AreEqual("2", StringSum.Sum("1", "1"));
         }
 
         [TestMethod]
         public void Sum_NonNaturalNumbersReturnSumOfNumbers()
         {
-            Assert.AreEqual(2, StringSum.Sum("Z", "2"));
+            Assert.AreEqual("2", StringSum.Sum("Z", "2"));
         }
     }
 }
