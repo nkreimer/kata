@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    public class Calculator
+    public static class Calculator
     {
         public static int Add(string numbers)
         {
@@ -15,7 +15,7 @@ namespace Calculator
 
         private static int GetSum(string numbers)
         {
-            var delimiter = GetPossibleDelimiter(numbers);
+            var delimiter = GetPossibleDelimiter();
             var newnumbers = numbers;
 
             if (HasSpecificDelimiter(numbers)) //for specific delimiters
@@ -34,7 +34,7 @@ namespace Calculator
             return numbers.StartsWith("//");
         }
 
-        private static string GetPossibleDelimiter(string numbers)
+        private static string GetPossibleDelimiter()
         {
             return ",\n";
         }
