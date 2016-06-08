@@ -18,7 +18,7 @@ namespace StringSum
 
         private static int ParseToInt(string num)
         {
-            return int.Parse(num);
+            return string.IsNullOrEmpty(num) ? 0 : int.Parse(num);
         }
     }
 }

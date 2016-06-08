@@ -13,9 +13,12 @@ namespace StringSum.Test
         }
 
         [TestMethod]
-        public void Sum_NonNaturalNumbersReturnSumOfNumbers()
+        public void Sum_EmptyOrNullReturnSumOfNumbers()
         {
-            Assert.AreEqual("2", StringSum.Sum("Z", "2"));
+            Assert.AreEqual("2", StringSum.Sum("", "2"));
+            Assert.AreEqual("2", StringSum.Sum(null, "2"));
+            Assert.AreEqual("0", StringSum.Sum("", ""));
+            Assert.AreEqual("0", StringSum.Sum(null, null));
         }
     }
 }
