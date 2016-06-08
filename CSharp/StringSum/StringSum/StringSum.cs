@@ -18,7 +18,22 @@ namespace StringSum
 
         private static int ParseToInt(string num)
         {
-            return string.IsNullOrEmpty(num) ? 0 : int.Parse(num);
+            //return string.IsNullOrEmpty(num) ? 0 : int.Parse(num);
+            return IsNaturalNumber(num);
+
+        }
+
+        private static int IsNaturalNumber(string num)
+        {
+            int result = 0; 
+            if(int.TryParse(num, out result) && result > 0)
+            {
+                return result;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }
