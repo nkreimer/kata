@@ -10,6 +10,11 @@ namespace OddEven
     {
         public static string OddEvenPrime(int num)
         {
+            if(num%2 == 0)
+            {
+                return "Even";
+            }
+
             return "Odd";
         }
     }
