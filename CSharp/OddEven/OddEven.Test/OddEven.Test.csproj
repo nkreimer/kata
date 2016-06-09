@@ -53,6 +53,12 @@
     <Compile Include="OddEvenTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OddEven\OddEven.csproj">
+      <Project>{f7744775-7ab3-4f1b-b88f-d7dffdf1bce7}</Project>
+      <Name>OddEven</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace OddEven
 {
-    public class OddEven
+    public static class OddEven
     {
+        public static string OddEvenPrime(int num)
+        {
+            return "Odd";
+        }
     }
 }

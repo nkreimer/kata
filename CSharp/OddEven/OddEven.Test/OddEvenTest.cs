@@ -7,8 +7,19 @@ namespace OddEven.Test
     public class OddEvenTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void OddEvenPrime_OddNumberReturnOdd()
         {
+            Assert.AreEqual("Odd", OddEven.OddEvenPrime(1));
+            Assert.AreEqual("Odd", OddEven.OddEvenPrime(5));
+            Assert.AreEqual("Odd", OddEven.OddEvenPrime(9));
+        }
+
+        [TestMethod]
+        public void OddEvenPrime_EvenNumberReturnEven()
+        {
+            Assert.AreEqual("Even", OddEven.OddEvenPrime(2));
+            Assert.AreEqual("Even", OddEven.OddEvenPrime(4));
+            Assert.AreEqual("Even", OddEven.OddEvenPrime(98));
         }
     }
 }
