@@ -53,6 +53,12 @@
     <Compile Include="LeapYearTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LeapYear\LeapYear.csproj">
+      <Project>{cc589120-3a89-4595-8e7b-b1ca7a7858d2}</Project>
+      <Name>LeapYear</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
