@@ -18,6 +18,7 @@ namespace LeapYear.Test
         {
             Assert.AreEqual(false, LeapYear.IsLeapYear("2001"));
             Assert.AreEqual(false, LeapYear.IsLeapYear("1900"));
+            Assert.AreEqual(false, LeapYear.IsLeapYear("3000"));
         }
     }
 }

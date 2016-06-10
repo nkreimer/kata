@@ -17,8 +17,7 @@ namespace LeapYear
             */
             var intYear = int.Parse(year);
 
-            if (intYear % 4 == 0)
-                if (intYear % 100 > 0 || intYear % 400 == 0)
+            if ((intYear % 4 == 0 && intYear % 100 > 0) || intYear % 400 == 0)
                         return true;
             return false;
         }
